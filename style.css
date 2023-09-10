@@ -41,28 +41,32 @@
 }
 
 html {
-    overflow-x: hidden;
+   position: fixed;
+   height: 100%;
+   overflow: hidden;
 }
 
 body {
     font-family: 'Century Gothic';
-    max-width: 435px;
+    margin: 0;
+    width: 100vw; 
+    height: 100%;
+    overflow-y: auto;
     overflow-x: hidden;
-    position: fixed;
-    left: 0;
-    right: 0;
+    -webkit-overflow-scrolling: touch;
 }
 
 .main-page {
     margin-left: 8px;
     margin-right: 8px;
     margin-bottom: 50px;
+    position: relative;
 }
 
-.nav img {
+.nav-img-container img {
     position: absolute;
     right: -70px;
-    top: 0px;
+    top: -6px;
     width: 63%;
     
     object-fit: cover;
@@ -232,11 +236,12 @@ body {
     background-image: url('img/2page.png');
     background-size: cover;
     color: white;
+    /*height: 100%;*/
 }
 
 .procedure .container {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .realism {
@@ -248,7 +253,7 @@ body {
     font-family: 'Palace_of_Sports';
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13px;
     color: white;
     margin-top: 6px;
 }
@@ -265,16 +270,97 @@ body {
     text-transform: uppercase;
 }
 
+/*.procedure__content {
+    position: relative;
+}*/
 
+.procedure__content .circle {
+    background-color: transparent;
+    border: 1px solid #958886;
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
 
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.circle-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.crosses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: relative;
+}
+
+.circle-container .cross-1 {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    margin-left: 50px;
+    border-radius: 15px;
+}
+
+.circle-container .cross-2 {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    transform: rotate(90deg);
+    position: absolute;
+    margin-left: 50px;
+    border-radius: 15px;
+}
+
+.circle-container-2 {
+    position: relative;
+    left: 50px;
+}
+
+.procedure__content .circle h1 {
+    font-weight: 500;
+}
+
+.circle-container-3 {
+    position: relative;
+    left: 100px;
+}
+
+.procedure__text {
+    margin-top: 75px;
+}
+.procedure__text .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 50px;
+}
 
 .countrain {
     background-image: url('img/4page.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 750px;
+    background-size: cover;
+    height: 710px;
     position: relative;
+}
 
+.content {
+    height: 100%;
+}
+
+.countrain .content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -308,6 +394,7 @@ input[type="checkbox"]{
     height: 45px;
     background-color: white;
     border-radius: 50%;
+    z-index: 20;
 }
 .bar .middle {
     height: 2px;
@@ -339,15 +426,26 @@ input[type="checkbox"]{
 }
 
 .menu-box {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    width: 0;
+    height: 0;
+    background: #f2ece9;
     position: fixed;
     top: 0;
     right: 0;
     display: flex;
     justify-content: center;
     overflow: hidden;
+
+    border-bottom-left-radius: 100%;
+    transition: width 0.5s, height 0.5s, border-radius 0.5s;
+    z-index: 15;
+}
+
+.menu-box.open-menu {
+    width: 100%;
+    height: 100vh;
+    border-bottom-left-radius: 0;
+    z-index: 15;
 }
 
 .menu-box ul li {
@@ -361,6 +459,7 @@ input[type="checkbox"]{
     text-decoration: none;
     color: black;
     font-size: 20px;
+    position: relative;
 }
 
 input[type="checkbox"]:checked ~ .bar .bottom {
@@ -380,8 +479,113 @@ input[type="checkbox"]:checked ~ .bar .top {
 }
 
 input[type="checkbox"]:checked ~ .bar .middle {
-    transform: translateX(20px);
+    transform: translateX(15px);
     opacity: 0;
+}
+
+
+.countrain .item {
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+
+    position: absolute;
+}
+
+.countrain .item-1 {
+    position: absolute;
+    left: 14%;
+    top: 10%;
+}
+
+.countrain .item-2 {
+    position: absolute;
+    left: 13%;
+    top: 83.5%;
+}
+
+.countrain-tip-1 p {
+    position: absolute;
+    left: -9%;
+    top: -2%;
+    color: white;
+}
+
+.countrain-tip-2 p {
+    position: absolute;
+    left: -17.5%;
+    top: 90%;
+    color: white;
+}
+
+.countrain .text {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    margin: 0 10px;
+    color: white;
+    opacity: 0;
+    animation: ani 2.5s forwards;
+}
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+.why-chose {
+    background-image: url('img/blur.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.why-chose .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.why-chose h2 {
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+.why-chose__causes {
+    margin-top: 50px;
+}
+
+.semicircle-1 {
+    background: transparent;
+    border: 1px solid white;
+    width: 165px;
+    height: 165px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.semicircle-2 {
+    background: transparent;
+    border: 1px solid white;
+    width: 165px;
+    height: 165px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.semicircle-3 {
+    background: transparent;
+    border: 1px solid white;
+    width: 165px;
+    height: 165px;
+    border-radius: 50%;
+    position: relative;
 }
 
 
@@ -389,17 +593,8 @@ input[type="checkbox"]:checked ~ .bar .middle {
     display: none;
 }
 @media (min-width: 436px) {
-    .main-page {
+    body {
         display: none;
-    }
-    .procedure {
-        display: none;
-    }
-    .countrain {
-        display: none;
-    }
-    .big-screen {
-        display: flex;
     }
 }
 
