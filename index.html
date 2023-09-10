@@ -13,19 +13,20 @@
    <div class="big-screen">
       <h1>Пожалуйста откройте страницу с <br> мобильного устройства</h1>
    </div>
-   <div class="main-page">
+   <div class="main-page" id="main">
       <div class="contact">
          <h3>+79964182936</h3>
          <h2>Irina Realism</h2>
          <label>
             <input type="checkbox">
-            <div class="bar">
+            <div class="bar" id="menuIcon">
                <span class="top"></span>
                <span class="middle"></span>
                <span class="bottom"></span>
             </div>
+            
          </label>
-          <!-- <div class="menu-box">
+         <div class="menu-box" id="menuBox">
                <ul>
                   <li><a href="">как нас найти</a></li>
                   <li><a href="">противопоказания</a></li>
@@ -33,10 +34,12 @@
                   <li><a href="">памятки по уходу</a></li>
                   <li><a href="">как пройдет моя процедура?</a></li>
                </ul>
-            </div> -->
+            </div>
       </div>
-      <div class="nav">
-          <img src="img/main.png" alt="">
+      <div class="nav-img-container">
+         <img src="img/main.png" alt="">
+      </div>
+      <div class="nav" id="nav">
           <div class="circle">
              <div class="title">
                 <h3>Первая студия <br> перманентного макияжа</h3>
@@ -64,12 +67,12 @@
              </div>
           </div>
       </div>
-      <div class="appo">
+      <div class="appo" id="appo">
          <p>Мы всегда на строне Вашей красоты <br> Мы намного больше, чем просто <br> пермамент. Знаешь о нас<br> записывайся, нет листай дальше.</p>
          <a href="#"><button>Записаться</button></a>
       </div>
    </div>
-   <div class="procedure"> 
+   <div class="procedure" id="procedure"> 
       <div class="container">
          <div class="realism">
             <h3>Irina Realism</h3>
@@ -78,11 +81,92 @@
             <h2>Как пройдет моя процедура?</h2>
             <p>аваодвоадвода<br>аваодвоадвода</p>
          </div>
-         dasd
+         <div class="procedure__content">
+            <div class="circle-container">
+               <div class="circle">
+                  <h1>1</h1>
+               </div>
+               <div class="crosses">
+                  <span class="cross-1"></span>
+                  <span class="cross-2"></span>
+               </div>
+               <h3></h3>
+            </div>
+            <img src="" alt="">
+            <div class="circle-container circle-container-2">
+               <div class="circle">
+                  <h1>2</h1>
+               </div>
+               <div class="crosses">
+                  <span class="cross-1"></span>
+                  <span class="cross-2"></span>
+               </div>
+               <h3></h3>
+            </div>
+            <img src="" alt="">
+            <div class="circle-container circle-container-3">
+               <div class="circle">
+                  <h1>3</h1>
+               </div>
+               <div class="crosses">
+                  <span class="cross-1"></span>
+                  <span class="cross-2"></span>
+               </div>
+               <h3></h3>
+            </div>
+         </div>
+         <div class="procedure__text">
+            <div class="text">
+               <p>Вы уходите от нас с перманентом, который <br> ограничен Вашей личности, подчеркивает <br> хороший вкус и спокойны за окончательный <br> результат</p>
+            </div>
+         </div>
       </div>
    </div>
-   <div class="countrain">
-      <div class="circle"></div>
+   <div class="countrain" id="countrain">
+      <div class="content">
+         <div class="circle">
+            <div class="countrain-tip-1">
+                <a href="#" class="item item-1"></a>
+                <p>уход после <br> ПМ</p>
+            </div>
+            <div class="countrain-tip-2">
+                <span href="#" class="item item-2" id="countr"></span href="#">
+                <p>противопокозания</p>
+            </div>
+         </div>
+      </div>
+      <div class="text" id="countrText">
+         <p>Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Iure, ex repudiandae sapiente facilis numquam distinctio, illo facere culpa, provident vero veniam doloremque ratione. Harum, deleniti!</p>
+      </div>
    </div>
-</body>
-</html>
+   <!-- <div class="why-chose">
+      <div class="container">
+         <h2>Нас выбирают за</h2>
+         <div class="why-chose__causes">
+            <div class="semicircle-1"></div>
+            <div class="semicircle-2"></div>
+            <div class="semicircle-3"></div>
+         </div>
+      </div>
+   </div> -->
+   <script>
+      let menuBox = document.getElementById('menuBox');
+      let menuIcon = document.getElementById('menuIcon');
+      let nav = document.getElementById('nav');
+      let countrain = document.getElementById('countrain');
+      let procedure = document.getElementById('procedure')
+      let appo = document.getElementById('appo');
+
+      menuIcon.onclick = function(){
+         menuBox.classList.toggle('open-menu')
+
+      };
+
+      let countr = document.querySelector('#countr');
+      let countrText = document.querySelector('#countrText');
+
+      countr.onclick = function(){
+         countrText.style.display = 'inline';
+      }
+
+      console.log(countr)
